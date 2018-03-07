@@ -6,7 +6,7 @@ import DesignModle.factory.pizza.*;
 /**
  * Created by xinjian.ye on 2018/2/12.
  */
-public abstract class SimplePizzaFactory {
+public class SimplePizzaFactory {
 
     public Pizza createPizza(String type) {
         Pizza pizza = null;

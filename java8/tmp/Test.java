@@ -11,10 +11,10 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        BigDecimal billAmt = new BigDecimal(100);
-        BigDecimal remainAmt = new BigDecimal(123);
-        BigDecimal payAmt = billAmt.abs().subtract(remainAmt.abs()).negate();
-        System.out.println(payAmt);
+//        BigDecimal billAmt = new BigDecimal(100);
+//        BigDecimal remainAmt = new BigDecimal(123);
+//        BigDecimal payAmt = billAmt.abs().subtract(remainAmt.abs()).negate();
+//        System.out.println(payAmt);
 //        double mounthAmt = 5000;
 //        double rate = 0.01;
 //        int year = 40;
@@ -24,5 +24,11 @@ public class Test {
 //            ret = calculate(ret, mounthAmt, rate);
 //        }
 //        System.out.println("每月投入: "+ mounthAmt + "," + year + " 年后, 投入: " + mounthAmt*mounth +",收获 :" + ret + " 收入比" +ret/(mounthAmt*mounth));
+        String snull = "";
+        StringBuilder sb = new StringBuilder("");
+        sb = sb.append(null==null?null:"111");
+//        sb = sb.append(null);
+        String string  = sb.toString();
+        System.out.println("string :" + string + "!");
     }
 }
