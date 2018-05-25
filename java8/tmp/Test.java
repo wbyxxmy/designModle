@@ -24,11 +24,18 @@ public class Test {
 //            ret = calculate(ret, mounthAmt, rate);
 //        }
 //        System.out.println("每月投入: "+ mounthAmt + "," + year + " 年后, 投入: " + mounthAmt*mounth +",收获 :" + ret + " 收入比" +ret/(mounthAmt*mounth));
-        String snull = "";
-        StringBuilder sb = new StringBuilder("");
-        sb = sb.append(null==null?null:"111");
-//        sb = sb.append(null);
-        String string  = sb.toString();
-        System.out.println("string :" + string + "!");
+//        String snull = "";
+//        StringBuilder sb = new StringBuilder("");
+//        sb = sb.append(null==null?null:"111");
+////        sb = sb.append(null);
+//        String string  = sb.toString();
+//        System.out.println("string :" + string + "!");
+
+        long a = 0;
+        long b = 2;
+
+        for(; a <= b; a++) {
+            System.out.println("完成进度: "+(int)(a*100/b));
+        }
     }
 }
