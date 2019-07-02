@@ -148,6 +148,39 @@ public class Solution {
         return i == num;
     }
 
+    public static String addStrings(String num1, String num2) {
+        int i = num1.length();
+        int j = num2.length();
+        int k = i>j?i+1:j+1;
+        int inc = 0;
+        char[] resultArr = new char[k];
+
+        while(i > 0 || j > 0 || inc > 0) {
+            int val;
+            if(i > 0 && j > 0) {
+                val = num1.charAt(i-1) - '0' + num2.charAt(j-1) - '0' + inc;
+            } else if(i > 0) {
+                val = num1.charAt(i-1) - '0' + inc;
+            } else if(j > 0) {
+                val = num2.charAt(j-1) - '0' + inc;
+            } else {
+                val = inc;
+            }
+
+            resultArr[--k] = (char)((val%10)+'0');
+            inc = val/10;
+            i--;
+            j--;
+        }
+
+        StringBuilder result = new StringBuilder();
+        while(k < resultArr.length) {
+            result.append(resultArr[k++]);
+        }
+
+        return result.toString();
+    }
+
     private static int countBitOne(int num) {
         int count = 0;
         while(num > 0) {
@@ -169,8 +202,52 @@ public class Solution {
         return count;
     }
 
+    private static final String OPEN = "(";
+    private static final String CLOSE = ")";
+
+    private static TreeNode tree2strTestCase() {
+        TreeNode t = new TreeNode(1);
+        t.left = new TreeNode(2);
+        t.right = new TreeNode(3);
+        t.left.left = new TreeNode(4);
+
+        return t;
+    }
+
+    public static String tree2str(TreeNode t) {
+        StringBuilder sb = new StringBuilder();
+        TreeNode p = t;
+        TreeNode[] nodeArr = new TreeNode[10000];
+        int topIndex = 0;
+
+        while(p != null || topIndex > 0) {
+            System.out.println(sb.toString());
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            if(p != nodeArr[topIndex]) {
+                sb.append(OPEN).append(p.val);
+                nodeArr[topIndex++] = p;
+            }
+            if(p.left != null && p.left != nodeArr[topIndex]) {
+                p = p.left;
+            } else if(p.right != null && p.right != nodeArr[topIndex]) {
+                sb.append(OPEN).append(CLOSE);
+                p = p.right;
+            } else {
+                sb.append(CLOSE);
+                topIndex--;
+                p = nodeArr[topIndex - 1];
+            }
+        }
+
+        return sb.toString();
+    }
+
     public static void main(String[] args) {
-        System.out.println(countPrimeSetBits(10, 15));
+        System.out.println(addStrings("3876620623801494171", "6529364523802684779"));
     }
 }
 
